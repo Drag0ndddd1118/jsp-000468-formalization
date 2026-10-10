@@ -800,7 +800,7 @@ theorem recoveryProbability_le_pow {N M k j : ℕ}
       (((N - k : ℕ) : ℝ) / (M - k : ℕ)) ^ j := by
         simp [div_pow]
   rw [← hconst]
-  apply Finset.prod_le_prod
+  apply Finset.prod_le_prod₀
   · intro i hi
     positivity
   · intro i hi
@@ -890,7 +890,7 @@ theorem backgroundProduct_le_exp {N M e : ℕ}
       (((M - e - i : ℕ) : ℝ) * ((N - i : ℕ) : ℝ)) /
         (((N - e - i : ℕ) : ℝ) * ((M - i : ℕ) : ℝ))) ≤
         ∏ _i ∈ Finset.range e, Real.exp (-x₀) := by
-          apply Finset.prod_le_prod
+          apply Finset.prod_le_prod₀
           · intro i hi
             exact div_nonneg
               (mul_nonneg (Nat.cast_nonneg _) (Nat.cast_nonneg _))
